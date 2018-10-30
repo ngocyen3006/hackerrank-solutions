@@ -1,18 +1,44 @@
 # https://www.hackerrank.com/challenges/between-two-sets/problem
 
+def gcd(a, b):
+    if b == 0:
+        return a
+
+    return gcd(b, a % b)
+
+
+def lcm(a, b):
+    return (a * b) / gcd(a, b)
+
+
+def gcdArray(arr):
+    res = arr[0]
+    for i in arr:
+        res = gcd(res, i)
+
+    return res
+
+
+def lcmArray(arr):
+    res = arr[0]
+    for i in arr:
+        res = lcm(res, i)
+
+    return res
+
+
 def getTotalX(a, b):
-    factors = []
+    lcmA = lcmArray(a)
+    gcdB = gcdArray(b)
+
+    count = 0
     x = 1
-    while (max(a) * x) <= min(b):
-        if max(a) * x %
-        factors.append(max(a) * x)
+    while (lcmA * x) <= gcdB:
+        if gcdB % (lcmA * x) == 0:
+            count += 1
         x += 1
 
-
-    for i in factors:
-
-
-    return len(result)
+    return count
 
 
 if __name__ == '__main__':
@@ -28,4 +54,3 @@ if __name__ == '__main__':
 
     total = getTotalX(a, b)
     print(total)
-
