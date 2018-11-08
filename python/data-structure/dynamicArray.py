@@ -18,7 +18,7 @@ def dynamicArray(n, queries):
 
 if __name__ == '__main__':
     queries = []
-    with open("testCase.txt") as file:
+    with open("dynamicArrayTest.txt") as file:
         line = file.readline()
         nq = line.rstrip().split()
         n = int(nq[0])
